@@ -1,41 +1,44 @@
 ﻿using System;
-using Extensibility;
 using EnvDTE;
 using EnvDTE80;
+using Extensibility;
 using Microsoft.VisualStudio.CommandBars;
-using System.Resources;
-using System.Reflection;
-using System.Globalization;
 
-namespace PasteAsGherkinTable
+namespace Aim.PasteAsGherkinTable
 {
   /// <summary>The object for implementing an Add-in.</summary>
   /// <seealso class='IDTExtensibility2' />
   public class Connect : IDTExtensibility2, IDTCommandTarget
   {
-    /// <summary>Implements the constructor for the Add-in object. Place your initialization code within this method.</summary>
+    private DTE2 applicationObject;
+    private AddIn addInInstance;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Connect" /> class.
+    /// Implements the constructor for the Add-in object. Place your initialization code within this method.
+    /// </summary>
     public Connect()
     {
     }
 
     /// <summary>Implements the OnConnection method of the IDTExtensibility2 interface. Receives notification that the Add-in is being loaded.</summary>
-    /// <param term='application'>Root object of the host application.</param>
-    /// <param term='connectMode'>Describes how the Add-in is being loaded.</param>
-    /// <param term='addInInst'>Object representing this Add-in.</param>
+    /// <param name="application">Root object of the host application.</param>
+    /// <param name="connectMode">Describes how the Add-in is being loaded.</param>
+    /// <param name="addInInst">Object representing this Add-in.</param>
     /// <seealso class='IDTExtensibility2' />
     public void OnConnection(object application, ext_ConnectMode connectMode, object addInInst, ref Array custom)
     {
-      _applicationObject = (DTE2)application;
-      _addInInstance = (AddIn)addInInst;
+      applicationObject = (DTE2)application;
+      addInInstance = (AddIn)addInInst;
       if (connectMode == ext_ConnectMode.ext_cm_UISetup)
       {
         object[] contextGUIDS = new object[] { };
-        Commands2 commands = (Commands2)_applicationObject.Commands;
+        Commands2 commands = (Commands2)applicationObject.Commands;
         string toolsMenuName = "Tools";
 
         //Place the command on the tools menu.
         //Find the MenuBar command bar, which is the top-level command bar holding all the main menu items:
-        Microsoft.VisualStudio.CommandBars.CommandBar menuBarCommandBar = ((Microsoft.VisualStudio.CommandBars.CommandBars)_applicationObject.CommandBars)["MenuBar"];
+        Microsoft.VisualStudio.CommandBars.CommandBar menuBarCommandBar = ((Microsoft.VisualStudio.CommandBars.CommandBars)applicationObject.CommandBars)["MenuBar"];
 
         //Find the Tools command bar on the MenuBar command bar:
         CommandBarControl toolsControl = menuBarCommandBar.Controls[toolsMenuName];
@@ -46,7 +49,7 @@ namespace PasteAsGherkinTable
         try
         {
           //Add a command to the Commands collection:
-          Command command = commands.AddNamedCommand2(_addInInstance, "PasteAsGherkinTable", "PasteAsGherkinTable", "Executes the command for PasteAsGherkinTable", true, 59, ref contextGUIDS, (int)vsCommandStatus.vsCommandStatusSupported + (int)vsCommandStatus.vsCommandStatusEnabled, (int)vsCommandStyle.vsCommandStylePictAndText, vsCommandControlType.vsCommandControlTypeButton);
+          Command command = commands.AddNamedCommand2(addInInstance, "PasteAsGherkinTable", "PasteAsGherkinTable", "Executes the command for PasteAsGherkinTable", true, 59, ref contextGUIDS, (int)vsCommandStatus.vsCommandStatusSupported + (int)vsCommandStatus.vsCommandStatusEnabled, (int)vsCommandStyle.vsCommandStylePictAndText, vsCommandControlType.vsCommandControlTypeButton);
 
           //Add a control for the command to the tools menu:
           if ((command != null) && (toolsPopup != null))
@@ -130,7 +133,5 @@ namespace PasteAsGherkinTable
         }
       }
     }
-    private DTE2 _applicationObject;
-    private AddIn _addInInstance;
   }
 }
