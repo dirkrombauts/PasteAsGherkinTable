@@ -95,6 +95,18 @@ namespace PicklesDoc.PasteAsGherkinTable.Tests
         "| something quite long |");
     }
 
+    [TestMethod]
+    public void Format_TwoLinesWithUntrimmedContent_OuputShouldBeTrimmed()
+    {
+      var formatter = CreateFormatter();
+
+      string output = formatter.Format("header1        " + Environment.NewLine + "         content");
+
+      output.ShouldBe(
+        "| header1 |" + Environment.NewLine +
+        "| content |");
+    }
+
     private static GherkinTableFormatter CreateFormatter()
     {
       return new GherkinTableFormatter();

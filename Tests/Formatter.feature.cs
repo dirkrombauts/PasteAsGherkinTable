@@ -108,6 +108,46 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Simple Formatting with commas")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Formatter")]
+        public virtual void SimpleFormattingWithCommas()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Simple Formatting with commas", ((string[])(null)));
+#line 32
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+#line 33
+ testRunner.Given("the clipboard contains", "verb,pronoun,adjective\r\nisn\'t,that,cool?", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 38
+ testRunner.When("I invoke \"Paste As Gherkin Table\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 39
+ testRunner.Then("the following should be pasted", "| verb  | pronoun | adjective |\r\n| isn\'t | that    | cool?     |", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Correct Recognition of commas and semicolons")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Formatter")]
+        public virtual void CorrectRecognitionOfCommasAndSemicolons()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Correct Recognition of commas and semicolons", ((string[])(null)));
+#line 45
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+#line 46
+ testRunner.Given("the clipboard contains", "verb;pronoun;adjective\r\nisn\'t;that, you know,;cool?", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 51
+ testRunner.When("I invoke \"Paste As Gherkin Table\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 52
+ testRunner.Then("the following should be pasted", "| verb  | pronoun         | adjective |\r\n| isn\'t | that, you know, | cool?     |", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
