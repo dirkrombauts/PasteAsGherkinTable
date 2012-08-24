@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace Aim.PasteAsGherkinTable
+namespace PicklesDoc.PasteAsGherkinTable
 {
   public class GherkinTableFormatter
   {

@@ -10,7 +10,7 @@
     <StartupObject>
     </StartupObject>
     <NoStandardLibraries>false</NoStandardLibraries>
-    <AssemblyName>Aim.PasteAsGherkinTable</AssemblyName>
+    <AssemblyName>PicklesDoc.PasteAsGherkinTable</AssemblyName>
     <DeploymentDirectory>.\bin\</DeploymentDirectory>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
@@ -39,7 +39,7 @@
     <DocumentationFile>PasteAsGherkinTable.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>Aim.PasteAsGherkinTable</RootNamespace>
+    <RootNamespace>PicklesDoc.PasteAsGherkinTable</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Extensibility, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

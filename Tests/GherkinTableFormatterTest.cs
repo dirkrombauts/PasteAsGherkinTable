@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 
-namespace Aim.PasteAsGherkinTable.Tests
+namespace PicklesDoc.PasteAsGherkinTable.Tests
 {
   [TestClass]
   public class GherkinTableFormatterTest

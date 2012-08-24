@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Aim.PasteAsGherkinTable.Tests
+namespace PicklesDoc.PasteAsGherkinTable.Tests
 {
     using TechTalk.SpecFlow;
     
@@ -49,7 +49,7 @@ namespace Aim.PasteAsGherkinTable.Tests
             if (((TechTalk.SpecFlow.FeatureContext.Current != null) 
                         && (TechTalk.SpecFlow.FeatureContext.Current.FeatureInfo.Title != "Formatter")))
             {
-                Aim.PasteAsGherkinTable.Tests.FormatterFeature.FeatureSetup(null);
+                PicklesDoc.PasteAsGherkinTable.Tests.FormatterFeature.FeatureSetup(null);
             }
         }
         

@@ -2,7 +2,7 @@
 using Shouldly;
 using TechTalk.SpecFlow;
 
-namespace Aim.PasteAsGherkinTable.Tests
+namespace PicklesDoc.PasteAsGherkinTable.Tests
 {
     [Binding]
     public class FormatterSteps

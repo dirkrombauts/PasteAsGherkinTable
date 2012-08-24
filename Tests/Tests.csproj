@@ -6,8 +6,8 @@
     <ProjectGuid>{2840AA3B-A579-4EAF-820F-C7B330DE807C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aim.PasteAsGherkinTable.Tests</RootNamespace>
-    <AssemblyName>Aim.PasteAsGherkinTable.Tests</AssemblyName>
+    <RootNamespace>PicklesDoc.PasteAsGherkinTable.Tests</RootNamespace>
+    <AssemblyName>PicklesDoc.PasteAsGherkinTable.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

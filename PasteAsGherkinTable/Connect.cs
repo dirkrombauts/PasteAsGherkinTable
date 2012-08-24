@@ -4,7 +4,7 @@ using EnvDTE80;
 using Extensibility;
 using Microsoft.VisualStudio.CommandBars;
 
-namespace Aim.PasteAsGherkinTable
+namespace PicklesDoc.PasteAsGherkinTable
 {
   /// <summary>The object for implementing an Add-in.</summary>
   /// <seealso class='IDTExtensibility2' />
@@ -28,17 +28,17 @@ namespace Aim.PasteAsGherkinTable
     /// <seealso class='IDTExtensibility2' />
     public void OnConnection(object application, ext_ConnectMode connectMode, object addInInst, ref Array custom)
     {
-      applicationObject = (DTE2)application;
-      addInInstance = (AddIn)addInInst;
+      this.applicationObject = (DTE2)application;
+      this.addInInstance = (AddIn)addInInst;
       if (connectMode == ext_ConnectMode.ext_cm_UISetup)
       {
         object[] contextGUIDS = new object[] { };
-        Commands2 commands = (Commands2)applicationObject.Commands;
+        Commands2 commands = (Commands2)this.applicationObject.Commands;
         string toolsMenuName = "Tools";
 
         //Place the command on the tools menu.
         //Find the MenuBar command bar, which is the top-level command bar holding all the main menu items:
-        Microsoft.VisualStudio.CommandBars.CommandBar menuBarCommandBar = ((Microsoft.VisualStudio.CommandBars.CommandBars)applicationObject.CommandBars)["MenuBar"];
+        Microsoft.VisualStudio.CommandBars.CommandBar menuBarCommandBar = ((Microsoft.VisualStudio.CommandBars.CommandBars)this.applicationObject.CommandBars)["MenuBar"];
 
         //Find the Tools command bar on the MenuBar command bar:
         CommandBarControl toolsControl = menuBarCommandBar.Controls[toolsMenuName];
@@ -49,7 +49,7 @@ namespace Aim.PasteAsGherkinTable
         try
         {
           //Add a command to the Commands collection:
-          Command command = commands.AddNamedCommand2(addInInstance, "PasteAsGherkinTable", "PasteAsGherkinTable", "Executes the command for PasteAsGherkinTable", true, 59, ref contextGUIDS, (int)vsCommandStatus.vsCommandStatusSupported + (int)vsCommandStatus.vsCommandStatusEnabled, (int)vsCommandStyle.vsCommandStylePictAndText, vsCommandControlType.vsCommandControlTypeButton);
+          Command command = commands.AddNamedCommand2(this.addInInstance, "PasteAsGherkinTable", "PasteAsGherkinTable", "Executes the command for PasteAsGherkinTable", true, 59, ref contextGUIDS, (int)vsCommandStatus.vsCommandStatusSupported + (int)vsCommandStatus.vsCommandStatusEnabled, (int)vsCommandStyle.vsCommandStylePictAndText, vsCommandControlType.vsCommandControlTypeButton);
 
           //Add a control for the command to the tools menu:
           if ((command != null) && (toolsPopup != null))
