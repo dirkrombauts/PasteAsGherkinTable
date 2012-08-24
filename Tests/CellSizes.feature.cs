@@ -19,20 +19,20 @@ namespace PicklesDoc.PasteAsGherkinTable.Tests
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class FormatterFeature
+    public partial class CellSizeCalculationFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Formatter.feature"
+#line 1 "CellSizes.feature"
 #line hidden
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Formatter", "In order to avoid manual work\r\nAs a gherkin writer\r\nI want to past CSV data as a " +
-                    "Gherkin table", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Cell Size Calculation", "In order to more easily read gherkin tables\r\nAs a gherkin author\r\nI want tables t" +
+                    "o be aligned", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -47,9 +47,9 @@ namespace PicklesDoc.PasteAsGherkinTable.Tests
         public virtual void TestInitialize()
         {
             if (((TechTalk.SpecFlow.FeatureContext.Current != null) 
-                        && (TechTalk.SpecFlow.FeatureContext.Current.FeatureInfo.Title != "Formatter")))
+                        && (TechTalk.SpecFlow.FeatureContext.Current.FeatureInfo.Title != "Cell Size Calculation")))
             {
-                PicklesDoc.PasteAsGherkinTable.Tests.FormatterFeature.FeatureSetup(null);
+                PicklesDoc.PasteAsGherkinTable.Tests.CellSizeCalculationFeature.FeatureSetup(null);
             }
         }
         
@@ -70,41 +70,31 @@ namespace PicklesDoc.PasteAsGherkinTable.Tests
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Simple Formatting")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Formatter")]
-        public virtual void SimpleFormatting()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Table Cell Sizes")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Cell Size Calculation")]
+        public virtual void TableCellSizes()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Simple Formatting", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Table Cell Sizes", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line hidden
 #line 7
- testRunner.Given("the clipboard contains", "verb;pronoun;adjective\r\nisn\'t;that;cool?", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 12
- testRunner.When("I invoke \"Paste As Gherkin Table\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
+ testRunner.Given("I have this table", "| header1      | header2           | header3                   |\r\n| content      " +
+                    "| some more content |                           |\r\n| more content | small again " +
+                    "      | really very large content |", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 13
- testRunner.Then("the following should be pasted", "| verb  | pronoun | adjective |\r\n| isn\'t | that    | cool?     |", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I calculate the column sizes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Simple Formatting with large content")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Formatter")]
-        public virtual void SimpleFormattingWithLargeContent()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Simple Formatting with large content", ((string[])(null)));
-#line 19
-this.ScenarioSetup(scenarioInfo);
-#line hidden
-#line 20
- testRunner.Given("the clipboard contains", "verb;pronoun;adjective\r\nisn\'t;that;extremely cool?", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 25
- testRunner.When("I invoke \"Paste As Gherkin Table\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 26
- testRunner.Then("the following should be pasted", "| verb  | pronoun | adjective       |\r\n| isn\'t | that    | extremely cool? |", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "width"});
+            table1.AddRow(new string[] {
+                        "12"});
+            table1.AddRow(new string[] {
+                        "17"});
+            table1.AddRow(new string[] {
+                        "25"});
+#line 14
+ testRunner.Then("the result should be", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

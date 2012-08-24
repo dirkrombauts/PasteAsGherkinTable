@@ -12,6 +12,19 @@ Scenario: Simple Formatting
 	When I invoke "Paste As Gherkin Table"
 	Then the following should be pasted
     """
-	  | verb | pronoun | adjective |
-	  | isn't | that | cool? |
+	  | verb  | pronoun | adjective |
+	  | isn't | that    | cool?     |
+    """
+
+Scenario: Simple Formatting with large content
+	Given the clipboard contains
+    """
+    verb;pronoun;adjective
+	  isn't;that;extremely cool?
+    """
+	When I invoke "Paste As Gherkin Table"
+	Then the following should be pasted
+    """
+	  | verb  | pronoun | adjective       |
+	  | isn't | that    | extremely cool? |
     """

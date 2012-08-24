@@ -58,6 +58,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CellSizeCalculationSteps.cs" />
+    <Compile Include="CellSizeCalculatorTests.cs" />
+    <Compile Include="CellSizes.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CellSizes.feature</DependentUpon>
+    </Compile>
     <Compile Include="Formatter.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -69,6 +76,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CellSizes.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CellSizes.feature.cs</LastGenOutput>
+    </None>
     <None Include="Formatter.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Formatter.feature.cs</LastGenOutput>

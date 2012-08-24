@@ -71,6 +71,30 @@ namespace PicklesDoc.PasteAsGherkinTable.Tests
       output.ShouldBe("| header1 |" + Environment.NewLine + "| value_1 |");
     }
 
+    [TestMethod]
+    public void Format_TwoLinesWithContentOfDifferentLength_OuputShouldAddPadding()
+    {
+      var formatter = CreateFormatter();
+
+      string output = formatter.Format("header1" + Environment.NewLine + "v 1");
+
+      output.ShouldBe(
+        "| header1 |" + Environment.NewLine +
+        "| v 1     |");
+    }
+
+    [TestMethod]
+    public void Format_TwoLinesWithContentOfDifferentLengthSecondLineLonger_OuputShouldAddPadding()
+    {
+      var formatter = CreateFormatter();
+
+      string output = formatter.Format("header1" + Environment.NewLine + "something quite long");
+
+      output.ShouldBe(
+        "| header1              |" + Environment.NewLine +
+        "| something quite long |");
+    }
+
     private static GherkinTableFormatter CreateFormatter()
     {
       return new GherkinTableFormatter();
