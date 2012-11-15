@@ -1,15 +1,3 @@
-# PasteAsGherkinTable
+# PasteAsGherkinTable has moved!
 
-A Visual Studio 2012 plugin that pastes CSV data from the clipboard as a Gherkin table.
-
-## Example
-
-Given the clipboard contains
-
-	verb;pronoun;adjective
-	isn't;that;cool?
-
-Then the plugin will paste
-
-	| verb  | pronoun | adjective |
-	| isn't | that    | cool?     |
+Please watch this repository for changes and updates, as well as submitting Pull Requests: [https://github.com/picklesdoc/pasteasgherkintable](https://github.com/picklesdoc/pasteasgherkintable) 
